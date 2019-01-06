@@ -4,6 +4,8 @@ public class KadaneAlgorithm {
 		int[] array= {2,-1,2,3,4,-5};
 		System.out.println("Maximum contiguous sum is " + 
                 maxSubArraySum(array)); 
+		System.out.println("Maximum sum is " + 
+				maxSum(array)); 
 		
 	}
 	
@@ -20,6 +22,19 @@ public class KadaneAlgorithm {
 			}
 		}
 		return max_so_far;
+	}
+	static int maxSum(int[] a) {
+		int maxSum=0;
+		int max=0;
+		for(int i=0;i<a.length;i++) {
+			maxSum=maxSum+a[i];
+			if(max>maxSum) {
+				maxSum=maxSum-a[i];
+				max=maxSum;
+			}
+			max=maxSum;
+		}
+		return max;
 	}
 	
 	
